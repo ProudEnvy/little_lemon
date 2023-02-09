@@ -1,0 +1,41 @@
+.main {
+  height: 100px;
+}
+
+.button {
+  background-color: var(--primaryButton);
+  color: var(--text-color);
+  font-weight: bold;
+  padding-inline: 25px;
+  padding-block: 12px;
+  border-radius: 10px;
+  border-width: 0;
+}
+
+.display-title {
+  font-size: 64pt;
+}
+.sub-title {
+  font-size: 40pt;
+}
+.section-title {
+  font-size: 20pt;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.card-title {
+  font-size: 18pt;
+  font-weight: bold;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+
+.lead-text {
+  font-size: 18pt;
+}
+.sub-text {
+  font-size: 14pt;
+}
+.highlight-text {
+  font-size: 16pt;
+}

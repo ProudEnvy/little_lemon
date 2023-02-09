@@ -1,0 +1,20 @@
+#specials {
+  display: flex;
+  flex-direction: column;
+  max-width: 300;
+  width: 300;
+}
+
+.headline {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.special_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
