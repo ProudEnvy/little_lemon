@@ -21,8 +21,8 @@
 .image {
   position: relative;
   margin-top: 20px;
-  width: 380px;
-  height: 380px;
+  width: 330px;
+  height: 330px;
   border-radius: 16px;
   object-fit: cover;
 }

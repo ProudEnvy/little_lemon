@@ -54,6 +54,21 @@ const Navigation = () => {
                 Menu
               </a>
             </li>
+            <li className="navbar-item">
+              <a href="/reservations" className="navbar-link">
+                Reservations
+              </a>
+            </li>
+            <li className="navbar-item">
+              <a href="/order" className="navbar-link">
+                Order Online
+              </a>
+            </li>
+            <li className="navbar-item">
+              <a href="/Login" className="navbar-link">
+                Login
+              </a>
+            </li>
           </ul>
 
           <button className="navbar-toggle" onClick={toggleMenu}>

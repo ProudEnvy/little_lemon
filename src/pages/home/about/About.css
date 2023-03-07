@@ -10,15 +10,6 @@
   padding-bottom: 20px;
 }
 
-.imageAbout2 {
-  position: relative;
-  margin-top: 20px;
-  width: 300px;
-  height: 300px;
-  border-radius: 16px;
-  object-fit: cover;
-}
-
 .image-stack {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -26,8 +17,8 @@
 }
 
 .imageAbout {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -48,5 +39,12 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 1000px;
     gap: 50px;
+  }
+}
+@media (min-width: 500px) {
+  .imageAbout {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
   }
 }

@@ -1,0 +1,21 @@
+#footer {
+  padding: 30px;
+  background: var(--background);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
