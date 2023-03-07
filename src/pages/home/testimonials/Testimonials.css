@@ -1,0 +1,17 @@
+#Testimonials {
+  background-color: var(--background);
+  margin-block: 100px;
+  padding-block: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.customers {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  gap: 10px;
+}

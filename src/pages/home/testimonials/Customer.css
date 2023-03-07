@@ -1,0 +1,13 @@
+#customer {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 12px;
+  gap: 15px;
+}
+
+.textCostumer {
+  font-weight: bold;
+}

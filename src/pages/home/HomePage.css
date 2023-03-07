@@ -1,6 +1,9 @@
 .homeContent {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 100%;
+
+  align-items: center;
 }

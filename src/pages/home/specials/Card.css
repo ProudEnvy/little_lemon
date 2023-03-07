@@ -8,6 +8,7 @@
 #card {
   border-radius: 16px 16px 0px 0px;
   width: 280px;
+  margin: 10px;
   background-color: var(--background);
 }
 
