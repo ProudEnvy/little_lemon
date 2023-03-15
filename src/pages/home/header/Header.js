@@ -27,7 +27,11 @@ const Header = () => {
               focused on traditional <br></br> recipes served with a modern{' '}
               <br></br> twist.
             </p>
-            <button className="button">Reserve a Table</button>
+            <a href="/booking">
+              <button className="button" style={{ cursor: 'pointer' }}>
+                Reserve a Table
+              </button>
+            </a>
           </article>
           <div style={{ display: 'flex', justifyContent: 'end' }}>
             <img

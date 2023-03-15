@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer';
 import Navigation from './components/nav/Navigation';
 import BookingPage from './pages/booking/BookingPage';
 import HomePage from './pages/home/HomePage';
+import ConfirmedBooking from './pages/booking/components/ConfirmedBooking';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/booking" element={<BookingPage />}></Route>
+        <Route path="/confirmedBooking" element={<ConfirmedBooking />}></Route>
       </Routes>
       {/* <HomePage /> */}
       <Footer />

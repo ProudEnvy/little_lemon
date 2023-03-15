@@ -28,7 +28,7 @@ const Navigation = () => {
             <a href="/">Menu</a>
           </li>
           <li className="card-title">
-            <a href="/">Reservations</a>
+            <a href="/booking">Reservations</a>
           </li>
           <li className="card-title">
             <a href="/">Order Online</a>
