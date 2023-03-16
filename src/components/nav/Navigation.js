@@ -18,53 +18,53 @@ const Navigation = () => {
           <img src="/icons_assets/Logo.svg" alt="logo" className="logo" />
         </div>
         <ul className="nav_elements">
-          <li className="card-title">
+          <li className="card-title" aria-label="On Click">
             <a href="/">Home</a>
           </li>
-          <li className="card-title">
+          <li className="card-title" aria-label="On Click">
             <a href="/">About</a>
           </li>
-          <li className="card-title">
+          <li className="card-title" aria-label="On Click">
             <a href="/">Menu</a>
           </li>
-          <li className="card-title">
+          <li className="card-title" aria-label="On Click">
             <a href="/booking">Reservations</a>
           </li>
-          <li className="card-title">
+          <li className="card-title" aria-label="On Click">
             <a href="/">Order Online</a>
           </li>
-          <li className="card-title">
+          <li className="card-title" aria-label="On Click">
             <a href="/">Login</a>
           </li>
         </ul>
         <div className="collapsed">
           <ul className={showMenu ? 'navbar-menu active' : 'navbar-menu'}>
-            <li className="navbar-item">
+            <li className="navbar-item" aria-label="On Click">
               <a href="/" className="navbar-link">
                 Home
               </a>
             </li>
-            <li className="navbar-item">
+            <li className="navbar-item" aria-label="On Click">
               <a href="/about" className="navbar-link">
                 About
               </a>
             </li>
-            <li className="navbar-item">
+            <li className="navbar-item" aria-label="On Click">
               <a href="/menu" className="navbar-link">
                 Menu
               </a>
             </li>
-            <li className="navbar-item">
-              <a href="/reservations" className="navbar-link">
+            <li className="navbar-item" aria-label="On Click">
+              <a href="/booking" className="navbar-link">
                 Reservations
               </a>
             </li>
-            <li className="navbar-item">
+            <li className="navbar-item" aria-label="On Click">
               <a href="/order" className="navbar-link">
                 Order Online
               </a>
             </li>
-            <li className="navbar-item">
+            <li className="navbar-item" aria-label="On Click">
               <a href="/Login" className="navbar-link">
                 Login
               </a>

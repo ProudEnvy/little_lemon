@@ -3,7 +3,7 @@ import './Customer.css';
 
 const Customer = ({ rating, name, imageSrc, text }) => {
   return (
-    <div id="customer">
+    <article id="customer">
       <div className="textCostumer">Rating: {rating}/5</div>
       <div
         style={{
@@ -27,7 +27,7 @@ const Customer = ({ rating, name, imageSrc, text }) => {
       </div>
 
       <div>{text}</div>
-    </div>
+    </article>
   );
 };
 

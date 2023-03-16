@@ -21,8 +21,10 @@
 .image {
   position: relative;
   margin-top: 20px;
-  width: 330px;
-  height: 330px;
+  width: 90%;
+  height: 90%;
+  max-width: 330px;
+  max-height: 330px;
   border-radius: 16px;
   object-fit: cover;
 }

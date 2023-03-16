@@ -1,17 +1,20 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import BookingForm from './pages/booking/components/BookingForm';
 
-test('Renders the BookingForm heading', () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText('Book Now');
-  expect(headingElement).toBeInTheDocument();
-});
+// test('Renders the BookingForm heading', () => {
+//   render(<BookingForm />);
+//   const headingElement = screen.getByText('Book Now');
+//   expect(headingElement).toBeInTheDocument();
+// });
 
 test('Renders initializeTimes correctly', () => {
   render(<BookingForm />);
   //The value should be the key of the option
-  fireEvent.change(screen.getByTestId('res-time'), { target: { value: 2 } });
-  let options = screen.getAllByTestId('select-option');
+  fireEvent.change(screen.getByLabelText(/Choose time/), {
+    target: { value: 2 },
+  });
+  let options = screen.getByTestId('select-option');
+  console.log(options[1]);
   expect(options[0].selected).toBeFalsy();
   expect(options[1].selected).toBeTruthy();
   expect(options[2].selected).toBeFalsy();

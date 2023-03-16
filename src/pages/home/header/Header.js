@@ -28,7 +28,11 @@ const Header = () => {
               <br></br> twist.
             </p>
             <a href="/booking">
-              <button className="button" style={{ cursor: 'pointer' }}>
+              <button
+                className="button"
+                style={{ cursor: 'pointer' }}
+                aria-label="On Click"
+              >
                 Reserve a Table
               </button>
             </a>

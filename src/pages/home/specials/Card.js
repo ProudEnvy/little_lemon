@@ -4,7 +4,7 @@ import '../../../style.css';
 
 const Card = ({ title, price, content, imageSource }) => {
   return (
-    <div id="card">
+    <article id="card">
       <img src={imageSource} alt="" className="imageCard" />
       <div className="cardText">
         <div className="cardHeader">
@@ -22,7 +22,7 @@ const Card = ({ title, price, content, imageSource }) => {
           </span>
         </p>
       </div>
-    </div>
+    </article>
   );
 };
 
