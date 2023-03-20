@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import BookingForm from './components/BookingForm';
 import { useNavigate } from 'react-router-dom';
 const BookingPage = () => {
@@ -28,10 +28,16 @@ const BookingPage = () => {
   const submitAPI = function (formData) {
     return true;
   };
-  const dateNow = new Date('August 19, 1975 23:15:30');
-  const initializeTimes = fetchAPI(dateNow);
+  const initializeTimes = (initialAvailableTimes) => [
+    ...initialAvailableTimes,
+    ...fetchAPI(new Date()),
+  ];
 
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
+  const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    [],
+    initializeTimes
+  );
   const navigate = useNavigate();
 
   function submitForm(formData) {
@@ -42,14 +48,12 @@ const BookingPage = () => {
     return result;
   }
 
-  useEffect(() => {
-    return () => {
-      updateTimes();
-    };
-  });
-
   function updateTimes(state, date) {
-    return availableTimes;
+    const res = fetchAPI(date);
+    if (res.length > 0) {
+      return res;
+    }
+    return state;
   }
 
   return (
