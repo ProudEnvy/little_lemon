@@ -1,25 +1,40 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import BookingForm from './pages/booking/components/BookingForm';
 
-// test('Renders the BookingForm heading', () => {
-//   render(<BookingForm />);
-//   const headingElement = screen.getByText('Book Now');
-//   expect(headingElement).toBeInTheDocument();
-// });
-
-test('Renders initializeTimes correctly', () => {
+test('Renders the BookingForm heading', () => {
   render(<BookingForm />);
-  //The value should be the key of the option
-  fireEvent.change(screen.getByLabelText(/Choose time/), {
-    target: { value: 2 },
-  });
-  let options = screen.getByTestId('select-option');
-  console.log(options[1]);
-  expect(options[0].selected).toBeFalsy();
-  expect(options[1].selected).toBeTruthy();
-  expect(options[2].selected).toBeFalsy();
+  const headingElement = screen.getByText('Book Now');
+  expect(headingElement).toBeInTheDocument();
 });
 
+test('onSubmit with correct values', () => {
+  const onSubmit = jest.fn();
+
+  render(<BookingForm onSubmit={onSubmit} />);
+
+  const emailInput = screen.getByLabelText('Email');
+  const dateInput = screen.getByLabelText('Choose date');
+  const timeSelect = screen.getByLabelText('Choose time');
+  const numberOfGuestsInput = screen.getByLabelText('Number of guests');
+  const occasionSelect = screen.getByLabelText('Occasion');
+  const submitButton = screen.getByText('Book Now');
+
+  fireEvent.change(emailInput, { target: { value: 'mario@luigi.com' } });
+  fireEvent.change(dateInput, { target: { value: '20-03-2023' } });
+  fireEvent.change(timeSelect, { target: { value: '18:30' } });
+  fireEvent.change(numberOfGuestsInput, { target: { value: '5' } });
+  fireEvent.change(occasionSelect, { target: { value: 'Birthday' } });
+  fireEvent.submit(submitButton);
+  act(() => {
+    expect(onSubmit).toHaveBeenCalledWith({
+      email: 'mario@luigi.com',
+      date: '20-03-2023',
+      time: '18:30',
+      guests: '5',
+      occasion: 'Birthday',
+    });
+  });
+});
 // import { render, fireEvent, screen } from '@testing-library/react';
 // import App from './App';
 

@@ -1,11 +1,13 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import './BookingForm.css';
 
 const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
   const formik = useFormik({
     initialValues: {
+      email: '',
       date: '',
-      time: availableTimes[0],
+      time: '',
       guests: 1,
       occasion: '',
     },
@@ -15,6 +17,14 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
     },
     validate: (values) => {
       const errors = {};
+      if (!values.email) {
+        errors.email = 'Required';
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+      ) {
+        errors.email = 'Invalid email address';
+      }
+
       if (!values.date) {
         errors.date = 'Date is required';
       }
@@ -23,6 +33,8 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
       }
       if (!values.guests) {
         errors.guests = 'Guestnumber is required';
+      } else if (values.guests > 10) {
+        errors.guests = "Guestnumber can't be more than 10";
       }
       return errors;
     },
@@ -40,7 +52,26 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
         paddingInline: '15px',
       }}
     >
-      <label aria-details="Date" htmlFor="res-date" style={{ color: 'white' }}>
+      <label htmlFor="email" style={{ display: 'block' }}>
+        Email
+      </label>
+      <input
+        id="email"
+        placeholder="Enter your email"
+        type="text"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        className={
+          formik.errors.email && formik.touched.email
+            ? 'text-input error'
+            : 'text-input'
+        }
+      />
+      {formik.errors.email && formik.touched.email && (
+        <div className="input-feedback">{formik.errors.email}</div>
+      )}
+      <label aria-details="Date" htmlFor="date">
         Choose date
       </label>
       <input
@@ -53,7 +84,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
         onBlur={formik.handleBlur}
         aria-label="Choose Date"
       />
-      <label htmlFor="time" style={{ color: 'white' }} aria-details="Time">
+      <label htmlFor="time" aria-details="Time">
         Choose time
       </label>
       <select
@@ -72,9 +103,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
           );
         })}
       </select>
-      <label htmlFor="guests" style={{ color: 'white' }}>
-        Number of guests
-      </label>
+      <label htmlFor="guests">Number of guests</label>
       <input
         aria-details="Guest number"
         type="number"
@@ -88,9 +117,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
         style={{ width: '40px' }}
         aria-label="Choose Guest Count"
       />
-      <label htmlFor="occasion" style={{ color: 'white' }}>
-        Occasion
-      </label>
+      <label htmlFor="occasion">Occasion</label>
       <select
         aria-details="Occasion"
         id="occasion"
@@ -107,11 +134,14 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
       </select>
 
       <button
+        className="buttonBooking"
         aria-details="submit"
         type="submit"
         value="Book Now"
         style={{ marginInline: '50px' }}
-        disabled={!(formik.isValid && formik.dirty)}
+        disabled={
+          !(formik.values.date && formik.values.email && formik.values.occasion)
+        }
         aria-label="On Click"
       >
         Book Now
